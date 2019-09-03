@@ -12,6 +12,6 @@ int main() {
 	cin >> h;
 
 	int area = w * h;
-	cout << "Area " << area << "\n";
+	cout << "Area: " << area << "\n";
 
 }
