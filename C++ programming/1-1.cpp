@@ -11,7 +11,7 @@ int main() {
 	int h;
 	cin >> h;
 
-	int area = w + h;
+	int area = w * h;
 	cout << "sum " << area << "\n";
 
 }
