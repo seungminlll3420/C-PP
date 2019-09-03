@@ -5,16 +5,16 @@ using namespace std;
 
 int main() {
 	char password[11];
-	cout << "input your computer password" << endl;
+	cout << "Please enter your computer password." << endl;
 	while (true) {
 		cout << "password>>";
 		cin >> password;
 		if (strcmp(password, "c++") == 0) {
-			cout << "program over";
+			cout << "Exit the program.";
 			break;
 		}
 		else
-			cout << "no";
+			cout << "The password is wrong.";
 	}
 
 }
