@@ -1,12 +1,13 @@
 #include <iostream>
+#include <cstring>
 using namespace std;
 
 int main(){
+  string s = "1234/4567";
 
-  char i[100];
+  int n = stoi(s);
+  int i = stoi(s);
 
-  for(int a = 0; a<=4;a++){
-    cin.getline(i,100,';');
-    cout << i;
-  }
+  cout << n << i;
+
 }
