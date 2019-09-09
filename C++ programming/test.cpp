@@ -1,12 +1,11 @@
 #include <iostream>
+#include <cstring>
 using namespace std;
 
 int main(){
 
-  char i[100];
+  string a;
+  a = "abcdefg";
+  cout << LeftStr(a,3);
 
-  for(int a = 0; a<=4;a++){
-    cin.getline(i,100,';');
-    cout << i;
-  }
 }
