@@ -7,12 +7,12 @@ public:
   int Year;
   int Month;
   int Day;
-  char e[100];
+  string e;
 
   Date(int a,int b,int c);
   Date(char d[100]);
 
-  void show();
+  string show();
   int getYear();
   int getMonth();
   int getDAy();
@@ -23,11 +23,16 @@ Date :: Date(int a,int b, int c){
   Month = b;
   Day= c;
 }
-Date :: Date(char d[100]){
-  strcpy(e,d);
+Date :: Date(string d){
+  e = d;
 }
-void Date :: show(){
-  cout
+string Date :: show(){
+  string Y ="Year";
+  string M = "Month";
+  string D = "Day";
+
+  return stoi(strDate.Left(4)) +Y;
+
 }
 
 
