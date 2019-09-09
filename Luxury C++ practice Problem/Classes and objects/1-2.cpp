@@ -1,49 +1,36 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
 
- #include <iostream>
- #include <cstring>
- using namespace std;
+class Date{
+  int Year;
+  int Month;
+  int Day;
+public:
+  Date(int y,int m,int d){Year = y; Month = m; Day= d;};
+  Date(char *d);
 
- class Date{
- public:
-   char date[100];
-    int Year;
-    int Month;
-    int Day;
-    Date(int a,int b,int c);
-    Date(char a[100]);
-    int getYear(){}
-    int getMonth(){}
-    int getDay(){}
-    void show(){}
-  };
+  string show(){ cout << Year << " Year "<<Month<<" Month "<<Day<<" Day"<<endl;};
+  int getYear(){return Year;};
+  int getMonth(){return Month;};
+  int getDay(){return Day;};
+};
 
- Date::Date(int a,int b, int c){
-  Year = a;
-  Month = b;
-  Day = c;
- }
 
-Date::Date(char a[100]){
-  strcpy(date, a);
-}
-void Date ::show(){
-
-  cout << stoi(strDate.Left(4)) << "getYear " << stoi(strDate.Mid(5, 2)) << "Morth " << stoi(strDate.Riht(2))) << "Day" <<endl;
+Date :: Date(char *d){
+  char a[20];
+  for(int i =0; i< strlen(d); i++){
+    a[i] = *(d+i);
+  }
+  Year = atoi(strtok(a, "/"));
+  Month = atoi(strtok(NULL, "/"));
+  Day = atoi(strtok(NULL, ""));
 }
 
-int Date:: getYear(){
-  return Year;
-}
-int Date:: getMonth(){
-  return Month;
-}
-int Date:: getDay(){
-  return Day;
-}
 
 int main(){
-  Date birth(2014,3,20);
+  Date birth(2014, 3, 20);
   Date independenceDay("1945/8/15");
   independenceDay.show();
-  cout <<birth.getYear()<<',' << birth.getMonth() << ','<< birth.getDay() <<endl;
+  cout << birth.getYear() << ','<< birth.getMonth() << ',' << birth.getDay();
 }
