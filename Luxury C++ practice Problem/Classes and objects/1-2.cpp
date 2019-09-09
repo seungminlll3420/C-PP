@@ -3,13 +3,10 @@
 using namespace std;
 
 class Date{
-public:
   int Year;
   int Month;
   int Day;
-  string e;
-
-
+public:
   Date(int y,int m,int d){Year = y; Month = m; Day= d;};
   Date(char *d);
 
