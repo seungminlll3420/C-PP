@@ -16,12 +16,12 @@ public:
     water--;
   }
   void drinkAmericano(){
-    coffee --;
-    water -=2;
+    coffee--;
+    water -= 2;
   }
   void drinkSugarCoffe(){
-    coffee --;
-    water -=2;
+    coffee--;
+    water -= 2;
     sugar--;
 
   }
@@ -33,10 +33,7 @@ public:
   void show(){
     cout <<"coffee machine condition, "<< "coffee:"<< coffee << "  water:"<<water<<"  sugar"<<sugar<<endl;
   }
-
 };
-
-
 int main(){
   CoffeeMachine java(5,10,3);
   java.drinkEspresso();
