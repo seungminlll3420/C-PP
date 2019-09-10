@@ -2,8 +2,8 @@
 using namespace std;
 
 class Rectangle {
-public:
   int width, height;
+public:
   Rectangle();
   Rectangle(int w,int h);
   Rectangle(int length);
