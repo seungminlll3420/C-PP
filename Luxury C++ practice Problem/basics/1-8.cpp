@@ -20,6 +20,6 @@ for(int i = 1; i <= 5 ; i++){
     cout <<"\n";
 
   }
-  cout << "가장 긴 이름은 "<< b;
+  cout << "The longest name is "<< b;
 
 }
