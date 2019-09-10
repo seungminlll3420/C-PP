@@ -14,7 +14,7 @@ int main(){
 
   while(text[i] != '\0'){
     for(int g = 1; g < 27; g++){
-      if(tolower(text[i]) == alphabets[g]){
+      if((isalpha(text[i]))&&(tolower(text[i]) == alphabets[g])){
         numberofalphabets[g]++;
         numberofalphabets[0]++;
       }
