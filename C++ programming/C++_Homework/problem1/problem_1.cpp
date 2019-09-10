@@ -4,7 +4,7 @@ using namespace std;
 int main(){
   char a[100];
 
-  cout << "문자를 입력하라(100개 미만).\n";
+  cout << "문자들을 입력하라(100개 미만).\n";
 
   cin.getline(a,100,'\n');
   int i = 0;

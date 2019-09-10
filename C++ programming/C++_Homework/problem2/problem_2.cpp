@@ -4,7 +4,7 @@ using namespace std;
 int main(){
   char text[10000];
   fill_n(text,10000,'\0');
-  cout << "영문 텍스트를 입력하세요. 히스토그램을 그립니다.\n 텍스트의 끝은 ; 입니다. 10000개까지 가능합니다.\n";
+  cout << "영문 텍스트를 입력하세요. 히스토그램을 그립니다.\n텍스트의 끝은 ; 입니다. 10000개까지 가능합니다.\n";
   cin.getline(text,10000,';');
   int i=0,j;
   int numberofalphabets[27];

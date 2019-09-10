@@ -31,11 +31,11 @@ public:
 	int getExp() {
 		return E;
 	}
-	int equals(Exp X) {
+	bool equals(Exp X) {
 		if (sum == X.sum)
-			return 1;
+			return true;
 		else
-			return 0;
+			return false;
 	}
 };
 
