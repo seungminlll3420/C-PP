@@ -15,8 +15,7 @@ Tower::Tower(int H){
   Height = H;
 }
 int Tower :: getHeight(){
-    return Height
-    ;
+    return Height;
   }
 
 int main(){
