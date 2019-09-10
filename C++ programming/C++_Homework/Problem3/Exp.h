@@ -15,7 +15,6 @@ public:
     B = a;
     E = b;
   }
-
   int getValue(){
     int i = 0;
     while(i != E){
