@@ -31,7 +31,7 @@ public:
     sugar = 10;
   }
   void show(){
-    cout <<"coffee machine condition, "<< "coffee:"<< coffee << "  water:"<<water<<"  sugar"<<sugar<<endl;
+    cout <<"coffee machine condition, "<< "coffee:"<< coffee << " water:"<<water<<" sugar"<< sugar << "\t"<<endl;
   }
 };
 int main(){

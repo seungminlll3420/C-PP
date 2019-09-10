@@ -6,6 +6,9 @@ using namespace std;
 
 class Random{
 public:
+  Random(){
+    srand(time(0));
+  }
   int next(){
 
     return rand();
@@ -19,7 +22,7 @@ public:
 
 int main(){
   Random r;
-  srand(time(0));
+
   cout <<"-- 10 random integers from 0 to "<< RAND_MAX <<" --"<<endl;
   for(int i=0;i<10;i++){
     int n = r.next();
