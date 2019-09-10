@@ -1,6 +1,3 @@
-#include <iostream>
-using namespace std;
-
 class Exp{
   int sum = 1;
   int B;
@@ -40,18 +37,3 @@ public:
       return 0;
   }
 };
-
-int main(){
-
-  Exp a(3,2);
-  Exp b(9);
-  Exp c;
-
-  cout << a.getValue() <<" "<<b.getValue() << " "<<c.getValue()<<endl;
-  cout <<"a's Base " << a.getBase() << ", Exp " << a.getExp() <<endl;
-
-  if(a.equals(b))
-    cout << "same" << endl;
-  else
-    cout << "not same" << endl;
-}
