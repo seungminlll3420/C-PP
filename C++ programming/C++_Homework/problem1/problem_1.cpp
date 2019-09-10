@@ -14,7 +14,6 @@ int main(){
    if(a[i] == 'x')
     x++;
    i++;
-
   }
   cout << "X의 개수는 " << x;
 }
