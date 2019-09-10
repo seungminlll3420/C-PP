@@ -9,7 +9,7 @@ int main(){
   Exp c;
 
   cout << a.getValue() <<" "<<b.getValue() << " "<<c.getValue()<<endl;
-  cout <<"a's Base " << a.getBase() << ", Exp " << a.getExp() <<endl;
+  cout <<"a의 베이스" << a.getBase() << ", 지수 " << a.getExp() <<endl;
 
   if(a.equals(b))
     cout << "same" << endl;
