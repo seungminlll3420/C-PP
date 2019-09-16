@@ -29,4 +29,5 @@ int main(){
     cout << endl;
   }
   cout << "There are " << s <<" circles whose area is greater than 100.";
+  delete p;
 }

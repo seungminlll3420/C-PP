@@ -36,4 +36,5 @@ int main(){
       cout << "phone number is "<< (p+i)->getTel();
     }
   }
+  delete p;
 }

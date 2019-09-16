@@ -29,6 +29,7 @@ public:
   ~Sample(){
 
   }
+  delete p;
 };
 
 int main(){
