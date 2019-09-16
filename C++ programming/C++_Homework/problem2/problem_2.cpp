@@ -11,14 +11,13 @@ int main(){
   int numberofalphabets[alphabet_27];
   fill_n(numberofalphabets,alphabet_27,0);
   char alphabets[alphabet_27];
-
   fill_n(alphabets,alphabet_27,NULL);
   for(j=1; j < alphabet_27 ; j++){
     alphabets[j] = g++;
   }
 
   while(text[i] != '\0'){
-    for(int g = 1; g < alphabet_27; g++){
+    for(int g = 1; g < 27; g++){
       if((isalpha(text[i]))&&(tolower(text[i]) == alphabets[g])){
         numberofalphabets[g]++;
         numberofalphabets[0]++;
@@ -27,10 +26,10 @@ int main(){
     i++;
   }
 
-  cout << endl << "총 알파벳 수 "<< numberofalphabets[0] << endl;
+  cout << "총 알파벳 수 "<< numberofalphabets[0] << endl ;
   cout << "\n";
 
-  for(int j = 1; j < alphabet_27 ; j++){
+  for(int j = 1; j < 27 ; j++){
     cout << alphabets[j] <<" ("<< numberofalphabets[j] << ") "<< ": ";
     for(int l = 0 ; l < numberofalphabets[j]; l++){
       cout << "*";
