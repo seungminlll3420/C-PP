@@ -29,7 +29,7 @@ public:
   ~Sample(){
 
   }
-  delete p;
+  delete [] p;
 };
 
 int main(){

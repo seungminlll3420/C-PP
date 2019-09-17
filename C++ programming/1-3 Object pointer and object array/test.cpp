@@ -15,16 +15,19 @@ public:
 int main(){
   int num;
   int s = 0;
-  Circle *p = new Circle [3];
-  for(int i =0 ; i<3 ;i++){
+  int cl;
+  cout << "the number of circles >> ";
+  cin >> cl;
+  Circle *p = new Circle [cl];
+  for(int i =0 ; i<cl ;i++){
     cout << "radius of circle " << i+1 << " >> ";
     cin >> num;
     (p+i)->setRadius(num);
-    if(100 < (p+i)->getArea()){
+    if(   (100 < (p+i)->getArea() ) && ((p+i)->getArea() < 200)   ){
       s++;
     }
     cout << endl;
   }
-  cout << "There are " << s <<" circles whose area is greater than 100.";
+  cout << "There are " << s <<" circles whose area is 100 to 200.";
   delete [] p;
 }

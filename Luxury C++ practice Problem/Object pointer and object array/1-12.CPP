@@ -30,41 +30,40 @@ public:
 		int rad;
 		for (int i = 0; i < size; i++) {
 			cout << "name of circle and radius of circle " << i + 1 << " >> ";
-			getline(cin, name, ' ');
-			cin >> rad;
+			cin >> name >> rad;
 			p->setCircle(name, rad);
 	   }
   }
-	~CircleManager();
-	void searchByName(string name) {
+	~CircleManager(){}
+	void searchByName() {
+		cout << "What is the name of the circle you want to search for >> ";
+		string a;
+		cin >> a;
+		cout << endl;
 		for (int i = 0; i < size; i++) {
-			if (p[i].getname() == name)
-				cout << p[i].getname() <<" Area is " <<p[i].getArea();
+			if (a == p[i].getname()){
+				cout << p[i].getname() <<" Area is " <<p[i].getArea() <<endl;
+			}
 		}
 	}
-	void searchByArea(int area) {
-		cout << "Search for a circle larger than " << area << endl;
+	void searchByArea() {
+		cout << "Please enter the minimum area as an integer >> ";
+		int b;
+		cin >> b;
+		cout << "Search for a circle larger than " << b << endl;
 		for (int i = 0; i < size; i++) {
-			if (p[i].getArea() > area)
+			if (p[i].getArea() > b)
 				cout << "The area of the " << p[i].getname() << " is " << p[i].getArea() << ", ";
 		}
   }
 };
-  CircleManager :: ~CircleManager(){
-  	delete p;
-}
+
 
 int main() {
 	int cl;
-  int area;
-  string name;
 	cout << "the number of circles >> ";
 	cin >> cl;
 	CircleManager cir(cl);
-  cout << "What is the name of the circle you want to search for >> ";
-  getline(cin, name ,'\n');
-  cir.searchByName(name);
-  cout << "Please enter the minimum area as an integer >> ";
-  cin >> area;
-  cir.searchByArea(area);
+  cir.searchByName();
+  cir.searchByArea();
 }

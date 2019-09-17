@@ -11,5 +11,5 @@ int main(){
   }
   Average /= 5;
   cout << "Average "<< Average;
-  delete p;
+  delete [] p;
 }
