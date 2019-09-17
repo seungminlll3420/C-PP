@@ -11,7 +11,7 @@ int main(){
   while(1){
     getline(cin,str,'\n');
     if(str == "exit"){
-      break;
+      return 0;
     }
     srand((unsigned)time(0));
     int n = rand() % str.size() + 0;
