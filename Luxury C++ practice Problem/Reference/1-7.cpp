@@ -21,7 +21,7 @@ public:
     if(tos == 0){
       return false;
     }else{
-      n = p[tos];
+      n = p[tos-1];
       tos--;
       return true;
     }
@@ -37,7 +37,7 @@ int main(){
       cout << endl << "number " << i+1 << " stack full"<< endl;
   }
   int n;
-  for(int i = 0; i11;i++){
+  for(int i = 0; i<11;i++){
     if(a.pop(n))
       cout << n << ' ';
     else
