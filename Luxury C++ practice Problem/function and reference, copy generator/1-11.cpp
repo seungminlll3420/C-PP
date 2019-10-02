@@ -1,5 +1,5 @@
 #include <iostream>
-#include <string>
+#include <cstring>
 using namespace std;
 
 class Book{
@@ -7,25 +7,27 @@ class Book{
   int price;
 public:
   Book(const char* title, int price){
-    strcpy(this->title,title);
 
+    strcpy(this->title,title);
     this->price = price;
   }
   ~Book(){
     if(title){
-      delete title;
+      delete [] title;
     }
   }
   void set(char* title, int price){
     if(title){
-      delete title;
+      delete [] title;
     }
-    title = new char;
+    int len = strlen(title);
+    this->title = new char[len+1];
+    strcpy(this->title,title);
     this->price = price;
-    strcpy(title,title);
   }
+
   void show(){
-    cout << title << ' '<< price << "wan " << endl;
+    cout << title << ' '<< price << "won " << endl;
   }
 };
 int main(){

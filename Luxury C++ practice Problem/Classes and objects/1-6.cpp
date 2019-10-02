@@ -14,7 +14,7 @@ public:
   }
   int nextInRange(int num1,int num2){
     while(1){
-      int n = rand() % num2 + num1;
+      int n = rand() % (num2-1) + num1;
       if((n%2) == 0)
         return n;
     }
@@ -28,7 +28,7 @@ int main(){
     int n = r.next();
     cout << n << ' ';
   }
-  cout << endl<<endl << " -- 10 random integers from 2 to 4 =="<<endl;
+  cout << endl<<endl << " -- 10 random integers from 2 to 9 =="<<endl;
   for(int i = 0; i<10; i++){
     int n = r.nextInRange(2,9);
     cout << n << ' ';

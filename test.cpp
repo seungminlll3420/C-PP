@@ -1,8 +1,12 @@
 #include <iostream>
 using namespace std;
 
+#include<stdlib.h>
+#include<time.h>
+
+
 int main(){
-  char a[10];
-  a[0] = 65;
-  cout << a[0];
+  srand(time(0));
+  int a = rand() % 5 + 1;
+  cout << a;
 }
