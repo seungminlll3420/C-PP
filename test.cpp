@@ -1,12 +1,12 @@
 #include <iostream>
 using namespace std;
 
-int main(){
-  for(int i =0 ; i < 4 ; i++){
-    for(int x = 0 ; x<= i; x++ ){
-    cout << '*';
-    }
-    cout << '\n';
+#include<stdlib.h>
+#include<time.h>
 
-  }
+
+int main(){
+  srand(time(0));
+  int a = rand() % 5 + 1;
+  cout << a;
 }
