@@ -6,7 +6,7 @@ using namespace std;
 
 
 int main(){
-  srand(time(0));
-  int a = rand() % 5 + 1;
-  cout << a;
+  int a[10];
+  int b[5] = {10,20,30,40,50};
+  a=b;
 }
