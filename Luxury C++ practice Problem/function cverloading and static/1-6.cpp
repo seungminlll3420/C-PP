@@ -47,9 +47,9 @@ int main() {
 	int *p;
 	p = ArrayUtility2::concat(x, y, 5);
   cout << "Outputs a combined integer array."<< endl;
-	for (int i = 0; i < 10; i++)	cout << p[i];
+	for (int i = 0; i < 10; i++)	cout << p[i] << ' ';
 	int c = 0;
 	p = ArrayUtility2::remove(x, y, 5,c);
-	cout << endl <<"Outputs array x[] minus array y[]." <<endl;
-	for (int i = 0; i < c; i++)	cout << p[i];
+	cout << endl <<"Outputs array x[] minus array y[]. " << c <<endl;
+	for (int i = 0; i < c; i++)	cout << p[i] << ' ';
 }
