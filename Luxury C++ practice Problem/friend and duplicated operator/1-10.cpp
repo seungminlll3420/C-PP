@@ -2,9 +2,19 @@
 using namespace std;
 // << 함수 내 구현 하는 방법
 class Statistics{
-  int A[100];
+  int *A;
+  int size;
   int i=0;
 public:
+  Statistics(){
+    size =100;
+    A = new int [size];
+  }
+  ~Statistics(){
+    if(A){
+      delete [] A;
+    }
+  }
   bool operator ! (){
     if(i == 0) return true;
     else return false;
