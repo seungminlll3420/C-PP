@@ -4,9 +4,29 @@ using namespace std;
 #include<stdlib.h>
 #include<time.h>
 
+class BaseIo{
+public:
+  int mode;
+};
+
+class In : virtual public BaseIo{
+public:
+  int readPos;
+};
+
+class Out : virtual public BaseIo{
+public:
+  int writePos;
+};
+class InOut : public In, public Out{
+public:
+  bool safe;
+};
+
 
 int main(){
-  int a[10];
-  int b[5] = {10,20,30,40,50};
-  a=b;
+  InOut a;
+  a.mode =5;
+  cout<< a.mode;
+
 }
