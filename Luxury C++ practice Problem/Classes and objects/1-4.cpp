@@ -44,6 +44,4 @@ int main(){
   java.show();
   java.fill();
   java.show();
-
-
 }
