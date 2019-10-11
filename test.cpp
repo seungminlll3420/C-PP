@@ -1,32 +1,62 @@
 #include <iostream>
 using namespace std;
 
-#include<stdlib.h>
-#include<time.h>
+#include <stdlib.h>
+#include <time.h>
 
-class BaseIo{
+
+class A {
 public:
-  int mode;
+A(){
+
+}
+~A(){
+        cout << "A";
+}
+void func(){
+        f();
+}
+
+virtual void f() {
+        cout << "A::"<<endl;
+}
 };
 
-class In : virtual public BaseIo{
+
+class B : public A {
 public:
-  int readPos;
+B(){
+
+}
+~B(){
+        cout << "B";
+}
+virtual void f() {
+        cout << "B::"<<endl;
+}
 };
 
-class Out : virtual public BaseIo{
+class C : public B {
 public:
-  int writePos;
-};
-class InOut : public In, public Out{
-public:
-  bool safe;
+C(){
+
+}
+~C(){
+        cout << "C";
+}
+virtual void f() {
+        cout << "C::" <<endl;
+}
 };
 
 
 int main(){
-  InOut a;
-  a.mode =5;
-  cout<< a.mode;
-
+        C c;
+        c.f();
+        A* pa;
+        B* pb;
+        pa = pb = &c;
+        pb->f();
+        pa->f();
+        pa->func();
 }
