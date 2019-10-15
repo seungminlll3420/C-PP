@@ -4,11 +4,11 @@ const char *pattern = "Happy families are all alike;";
 
 int main(){
 
-    FILE *file = fopen("input.txt", "r");
+        FILE *file = fopen("input.txt", "r");
 
-    printf("%d\n", matching(pattern, file));
+        printf("%d\n", matching(pattern, file));
 
-    fclose(file);
+        fclose(file);
 
-    return 0;
+        return 0;
 }
