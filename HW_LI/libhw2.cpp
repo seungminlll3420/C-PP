@@ -1,24 +1,3 @@
-#include <stdio.h>
+#include <string.h>
 #include "my_header.h"
-
-unsigned int matching(const char* pattern, FILE *file){
-    // char in[30];
-    // int i=0,j=0;
-    // int re=0;
-    // while(fread(in,i,i+MAX_LEN-1,file)){
-    //
-    //   if(in[i] == pattern[j]){
-    //     for(int x =0;x<MAX_LEN;j++){
-    //       if(in[x] == pattern[j]){
-    //         x++;
-    //         if(x == 29) re++;
-    //       }else{
-    //         break;
-    //       }
-    //     }
-    //
-    //   }
-    //
-    // }
-    return 4;
-}
+using namespace std;unsigned int matching(const char* pattern, FILE *file) {char *text = new char[1000]; int len = strlen(pattern) - 1; int result = 0; char *i; while (true) { if (fgets(text, 1000, file) == NULL) break; i = strstr(text, pattern); while (i != NULL) { result++; i += len; i = strstr(i, pattern); } }return result;}

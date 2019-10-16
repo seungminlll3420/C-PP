@@ -2,6 +2,7 @@
 #include <string>
 using namespace std;
 
+virtual int mod()=0;
 class Shape{
 protected:
   string name;
