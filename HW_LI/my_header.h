@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <iostream>
 
 #define MAX_LEN 30
 
