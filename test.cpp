@@ -1,22 +1,56 @@
 #include <iostream>
-#include <fstream>
 using namespace std;
-int main(){
-        char name[10],dept[20];
-        int sid;
-
-        cout << "name>>";
-        cin >> name;
-        cout << "student number>>";
-        cin >> sid;
-        cout << "you'r class>>";
-        cin >> dept;
-
-        ofstream fout("C:\\Users\\IoT-23\\student.txt");
-        if(!fout) {
-                return 0;
+class Stack {
+int *p;
+int pos;
+public:
+Stack() {
+        p = new int[100];
+        pos = 0;
+}
+Stack& operator << (int i) {
+        if (pos != 100) {
+                p[pos] = i;
+                pos++;
+                j = pos;
+                return *this;
         }
-        fout << name<< endl;
-        fout << sid << endl;
-        fout<< dept << endl;
+        else {
+                cout << "실패";
+                return *this;
+        }
+}
+Stack& operator >> (int& i) {
+
+        if (pos != 0) {
+
+                j--;
+                i = p[j];
+                return *this;
+        }
+        else {
+                cout << "실패";
+                return *this;
+        }
+}
+int j;
+bool operator ! () {
+        if (j == 0) {
+                return true;
+        }
+        else {
+                return false;
+        }
+}
+};
+int main() {
+        Stack stack;
+        stack << 3 << 5 << 10;
+        while (true) {
+                if (!stack) break;
+                int x;
+                stack >> x;
+                cout << x << ' ';
+        }
+        cout << endl;
 }

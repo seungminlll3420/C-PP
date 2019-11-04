@@ -1,48 +1,54 @@
 #include <iostream>
 using namespace std;
 
-class AbstractStank{
+class Abs {
 public:
-  virtual bool push(int n) =0;
-  virtual bool pop(int n) =0;
-  virtual int size() =0;
+virtual bool push(int n) = 0;
+virtual bool pop(int & n) = 0;
+virtual int szie() = 0;
 };
 
-class Stack : public AbstractStank{
-int size;
+class IntStack : public Abs {
+int psize;
 int i;
 int *p;
 public:
-  stack(int n){
-    size = n;
-    i = 0
-    p = new int [size];
-  }
-  virtual bool push(int n){
-    if(i < size)  p[i++] = n;
-    else return false;
-    return true;
-  }
-  virtual bool pop(int &n){
-    if(i != -1) n = p[--i];
-    else return false;
-    return true;
-  }
-  virtual int size(){
-    return size;
-  }
-  void print(){
-    for(int i =0; i<size;i++)
-      cout << p[i] << ", ";
-  }
+IntStack(int n){
+        psize = n;
+        i=-1;
+        p = new int [psize];
 }
+virtual bool push(int n){
+        if(i < psize)
+                p[++i] = n;
+        else
+                return false;
+        return true;
+}
+virtual bool pop(int & n){
+        if(i != -1) n = p[i--];
+        else return false;
+        return true;
+}
+virtual int szie(){
+        return psize;
+}
+};
 
 int main(){
-  stack s(10);
-  s.push(5);
-  s.push(3);
-  s.print();
-  int x;
-  s.pop(x);
-  s.print();
+        IntStack ab(10);
+        ab.push(1);
+        ab.push(2);
+        ab.push(3);
+        ab.push(4);
+        int x;
+        ab.pop(x);
+        cout<< x<< endl;
+        ab.pop(x);
+        cout<< x<< endl;;
+        ab.pop(x);
+        cout<< x<< endl;;
+        ab.pop(x);
+        cout<< x<< endl;;
+
 }

@@ -10,11 +10,16 @@ Circle(int radius =0){
 void show(){
         cout << "radius = " << radius << " Circle" << endl;
 }
-Circle operator +(int x, Circle a);
+int getradius(){
+        return radius;
+}
+friend Circle operator +(int x, Circle a);
+
 };
+
 Circle operator +(int x, Circle a){
         Circle b;
-        b.radius = a.radius +x;
+        b.radius = x + a.radius;
         return b;
 }
 
