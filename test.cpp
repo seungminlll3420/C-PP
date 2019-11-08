@@ -1,28 +1,56 @@
 #include <iostream>
-#include <string>
 using namespace std;
-
-class Book{
-  char *title;
-  int pricel
+class Stack {
+int *p;
+int pos;
 public:
-  Book(const char *title, int price){
-    this->title = title;
-    this->price = price;
-  }
-  Book(Book &x){
-    title = new char [10];
-    for()
-  }
-  ~Bokk();
-  void set(char *title, int price);
-  void show() {cout << title << ' ' << price << "circle" << endl;}
-};
+Stack() {
+        p = new int[100];
+        pos = 0;
+}
+Stack& operator << (int i) {
+        if (pos != 100) {
+                p[pos] = i;
+                pos++;
+                j = pos;
+                return *this;
+        }
+        else {
+                cout << "실패";
+                return *this;
+        }
+}
+Stack& operator >> (int& i) {
 
-int main(){
-  Book cpp("c++", 10000);
-  Book java = cpp;
-  java.set("java",12000);
-  cpp.show();
-  java.show();
+        if (pos != 0) {
+
+                j--;
+                i = p[j];
+                return *this;
+        }
+        else {
+                cout << "실패";
+                return *this;
+        }
+}
+int j;
+bool operator ! () {
+        if (j == 0) {
+                return true;
+        }
+        else {
+                return false;
+        }
+}
+};
+int main() {
+        Stack stack;
+        stack << 3 << 5 << 10;
+        while (true) {
+                if (!stack) break;
+                int x;
+                stack >> x;
+                cout << x << ' ';
+        }
+        cout << endl;
 }

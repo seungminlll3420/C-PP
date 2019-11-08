@@ -1,29 +1,31 @@
 #include <iostream>
 #include <string>
 using namespace std;
-class Board{
 
-  static string a[1000];
-  static int size=1;
-  static int f=0;
+class Board {
+
+static string a[];
+static int f;
 public:
-  static void add(string b){
-    if(size > 1000)
-      return;
-    a[f] = b;
-    size++;
-    f++;
-  }
-  static void print(){
-    for(int i =0;i<size;i++){
-      cout << a[i];
-    }
-  }
+
+static void add(string b){
+        a[f] = b;
+        f++;
+}
+static void print(){
+        cout<< "==========this is Board============"<< endl;
+        for(int i =0; i<f; i++) cout << a[i] << endl;
+}
 };
+
+int Board :: f =0;
+
+string Board :: a[100];
+
 int main(){
-  Board::add("I love you");
-  Board::add("me too");
-  Board::print();
-  Board::add("it's dream");
-  Board::print();
+        Board::add("I love you");
+        Board::add("me too");
+        Board::print();
+        Board::add("it's dream");
+        Board::print();
 }
