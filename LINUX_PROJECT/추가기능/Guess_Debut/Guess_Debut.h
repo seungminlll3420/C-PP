@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include "cast";
 using namespace std;
 
-void guess_debut(string name1, string name2, string name3); // 3명의 데뷔조 예상 함수
+void guess_debut(vector<cast> casts, vector<cast> my_star);  // 3명의 데뷔조 예상 함수
