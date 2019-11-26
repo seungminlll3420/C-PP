@@ -22,7 +22,7 @@ void vector_cast::cast_modify(vector<cast> &casts, string name) {
                 if (casts[i].getname() == name) {
                         string a, b;
                         int c;
-                        cout << "이름, 나이, 소속사 순으로 입력해주세요. ";
+                        cout << "Please enter name, age, entertainment ";
                         cin >> a >> c >> b;
                         casts[i].setname(a);
                         casts[i].setage(c);

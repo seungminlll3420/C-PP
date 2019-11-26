@@ -5,11 +5,11 @@ void community::Community(vector<string> &com) {
         int key = 0;
         string ma;
         while (out != 1) {
-                cout << "1 : 글쓰기 2: 글 보기 3 : 처음화면 가기" << endl;
+                cout << "1 : Writing 2: View the text 3 : Exit" << endl;
                 cin >> key;
                 switch (key) {
                 case 1:
-                        cout << "쓰세요(끝문자 : ;)" << endl;
+                        cout << "Writing (the last letter : ;)" << endl;
                         getline(cin, ma, ';');
 
 
@@ -26,7 +26,7 @@ void community::Community(vector<string> &com) {
                         break;
                 case 2:
                         if (com.size() == 0) {
-                                cout << "등록된 글이 없어,,,," << endl;
+                                cout << "There is no article registered." << endl;
                         }
                         else {
                                 for (int i = 0; i < com.size(); i++) cout << i + 1 << " :: " << com[i] << endl;

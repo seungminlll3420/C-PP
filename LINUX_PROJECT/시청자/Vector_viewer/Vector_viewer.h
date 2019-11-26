@@ -1,3 +1,4 @@
+
 #pragma once
 #include <iostream>
 #include <string>
@@ -13,6 +14,5 @@ void donation(vector<viewer> &viewers, int num);
 void v_show(vector<viewer> &viewers, int num);
 int check(vector<viewer> &viewers, string PhoneNumber);
 void show(vector<cast> cast);
-void addmy_star(vector<viewer> &viewers, vector<cast> &casts,int num);
-void showmy_star();
+void addmy_star(vector<viewer> &viewers, vector<cast> &casts, int num);
 };

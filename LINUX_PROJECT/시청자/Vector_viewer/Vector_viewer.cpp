@@ -16,57 +16,57 @@ void vector_viewer::vote(vector<viewer> &viewers, vector<cast> &cast, int num) {
                 int i = viewers[num].getVotePresence();
                 switch (i) {
                 case 0:
-                        cout << "투표하실 참가자의 이름을 입력해주세요.";
+                        cout << "Please enter the name of the cast to vote.";
                         cin >> name;
                         for (it = 0; it < cast.size(); it++) {
                                 if (cast[it].getname() == name) break;
                         }
                         if (it == cast.size()) {
-                                cout << "없는 출연진입니다." << endl;
+                                cout << "We don't have any cast." << endl;
                                 key = 0;
                                 break;
 
                         }
-                        cout << "투표 하시겠습니까? [Y/N] ";
+                        cout << "Would you like to vote? [Y/N] ";
                         cin >> yn;
                         if (yn == "y" || yn == "Y") {
                                 viewers[num].vote(0, name);
                                 for (int it = 0; it < cast.size(); it++) {
                                         if (cast[it].getname() == name) cast[it].addvote();
                                 }
-                                cout << "정상적으로 투표되었습니다." << endl;
+                                cout << "It was voted normally." << endl;
                                 key = 0;
                                 break;
                         }
                         else if (yn == "n" || yn == "N") {
-                                cout << "투표되지 않았습니다." << endl;
+                                cout << "It wasn't voted." << endl;
                                 key = 0;
                                 break;
                         }
                         else {
-                                cout << "잘못된 입력입니다." << endl;
+                                cout << "Invalid input." << endl;
                                 break;
                         }
                 case 1:
-                        cout << "투표하실 참가자의 이름을 입력해주세요.";
+                        cout << "Please enter the name of the cast to vote.";
                         cin >> name;
                         for (it = 0; it < cast.size(); it++) {
                                 if (cast[it].getname() == name) break;
                         }
                         if (it == cast.size()) {
-                                cout << "없는 출연진입니다." << endl;
+                                cout << "We don't have any cast." << endl;
                                 key = 0;
                                 break;
 
                         }
-                        cout << "투표 하시겠습니까? [Y/N].";
+                        cout << "Would you like to vote? [Y/N].";
                         cin >> yn;
                         if (yn == "y" || yn == "Y") {
                                 viewers[num].vote(1, name);
                                 for (int it = 0; it < cast.size(); it++) {
                                         if (cast[it].getname() == name) cast[it].addvote();
                                 }
-                                cout << "정상적으로 투표되었습니다." << endl;
+                                cout << "It was voted normally." << endl;
                                 key = 0;
                                 break;
                         }
@@ -76,7 +76,7 @@ void vector_viewer::vote(vector<viewer> &viewers, vector<cast> &cast, int num) {
                         }
                         break;
                 case 2:
-                        cout << "더이상 투표하실수 없습니다." << endl;
+                        cout << "You can't vote anymore." << endl;
                         key = 0;
                         break;
                 default:
@@ -87,14 +87,14 @@ void vector_viewer::vote(vector<viewer> &viewers, vector<cast> &cast, int num) {
 
 void vector_viewer::donation(vector<viewer> &viewers, int num) {
         int money;
-        cout << "후원하실 금액을 입력해주세요.";
+        cout << "Please enter the amount you want to sponsor.";
         cin >> money;
         viewers[num].donate(money);
-        cout << "정상적으로 후원되었습니다." << endl;
+        cout << "Sponsored normally." << endl;
 }
 
 void vector_viewer::v_show(vector<viewer> &viewers, int num) {
-        cout << "휴대폰 번호 : " << viewers[num].getNumber() << " 투표한 수 : " << viewers[num].getVotePresence() << " 투표한 사람 : " << viewers[num].getName() << " 후원한 금액 : " << viewers[num].getDonation() << endl;
+        cout << "Cell phonenumber : " << viewers[num].getNumber() << " the number of votes cast : " << viewers[num].getVotePresence() << " voting person : " << viewers[num].getName() << " sponsored amount : " << viewers[num].getDonation() << endl;
 }
 
 int vector_viewer::check(vector<viewer> &viewers, string PhoneNumber) {
@@ -109,7 +109,7 @@ int vector_viewer::check(vector<viewer> &viewers, string PhoneNumber) {
         }
 }
 void vector_viewer::show(vector<cast> cast) {
-        if (cast.size() == 0) cout << "등록된 참가자가 없습니다." << endl;
+        if (cast.size() == 0) cout << "There is no registered casts." << endl;
         else
         {
                 for (int it = 0; it < cast.size(); it++) {
@@ -137,11 +137,11 @@ void vector_viewer::addmy_star(vector<viewer> &viewers, vector<cast> &casts, int
                                 cout << "All already registered !!" << endl;
                                 break;
                         }
-                        cout << "한 명씩 입력하세요." << endl;
+                        cout << "Please enter one by one." << endl;
                         cin >> name;
                         for (int i = 0; i < 3; i++) {
                                 if (names[i] == name) {
-                                        cout << "이미 있는 참가자입니다." << endl;
+                                        cout << "The cast already exists." << endl;
                                         a++;
                                         break;
                                 }

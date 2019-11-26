@@ -1,3 +1,4 @@
+
 #include "cast.h"
 #include "vector_cast.h"
 #include "community.h"
@@ -15,24 +16,25 @@ int main() {
         vector<string> inmystar;
         vector_viewer v;
         vector<viewer> a;
+        vector<cast> debut;
         int n, i, k = 1;
         string num;
         int age;
         int end_vote = 0;
         string name;
         string en;
-
-        int out1 = 0; // 전체 while
-        int out2 = 0;// 시청자, 관계자 while
+        int m;
+        int out1 = 0;
+        int out2 = 0;
         int key1;
         int key2;
         while (out1 != 1) {
                 out1 = 0;
-                cout << "1: 관계자모드 2: 시청자모드 3: 나가기" << endl;
+                cout << "1: Admin mode 2: Viewer mode 3: Exit" << endl;
                 cin >> key1;
                 switch (key1) {
                 case 1:
-                        cout << "비번입력" << endl;
+                        cout << "Enter password" << endl;
                         cin >> num;
 
                         if (num == "1234") {
@@ -41,26 +43,26 @@ int main() {
                                 out2 = 0;
 
                                 while (out2 != 1) {
-                                        cout << "1 : 사람 추가하기 2 : 사람 삭제하기 3: 사람 수정하기 4 : 추가된 사람들 보기 5: 투표하기 6: 순위 보기 7: 투표 끝내기 8: 투표결과 보기 9: 글 쓰기. 10: 나가기" << endl;
+                                        cout << "1 : Add cast 2 : Delete cast 3: Modify cast 4 : Show cast 5: vote 6: View Rank 7: End voting 8: View voting results 9: Community 10: Exit" << endl;
                                         cin >> key2;
                                         if (end_vote == 1 && (key2 != 6 && key2 != 8 && key2 != 9 && key2 != 10)) {
-                                                cout << "투표결과 보기와 글 쓰기만 가능합니다." << endl;
+                                                cout << "Only show rank, show result, community, exit" << endl;
                                                 continue;
                                         }
                                         else {
                                                 switch (key2) {
                                                 case 1:
-                                                        cout << "이름 나이 소속사를 적어" << endl;
+                                                        cout << "Please enter name, age, entertainment" << endl;
                                                         cin >> name >> age >> en;
                                                         ac.cast_add(b, name, age, en);
                                                         break;
                                                 case 2:
-                                                        cout << "삭제할 사람의 이름을 적어봐" << endl;
+                                                        cout << "Enter the name of the person you want to delete" << endl;
                                                         cin >> name;
                                                         ac.cast_delete(b, name);
                                                         break;
                                                 case 3:
-                                                        cout << "사람을 수정하자" << endl;
+                                                        cout << "Enter the name of the person you want to modify" << endl;
                                                         cin >> name;
                                                         ac.cast_modify(b, name);
                                                         break;
@@ -80,10 +82,17 @@ int main() {
                                                         break;
                                                 case 7:
                                                         ac.end_vote(b, end_vote);
+                                                        for (int q = 0; q < 3; q++) debut.push_back(b[q]);
+                                                        cout << " debut group " << endl;
+                                                        for (int q = 0; q < 3; q++) {
+                                                                cout << debut[q].getname() << " ";
+                                                        }
+                                                        cout << endl;
+
                                                         break;
                                                 case 8:
                                                         if (end_vote == 0) {
-                                                                cout << "아직 투표가 진행중 입니다." << endl;;
+                                                                cout << "Voting is in progress." << endl;;
                                                                 break;
                                                         }
                                                         ac.show_vote(b);
@@ -95,26 +104,26 @@ int main() {
                                                         out2 = 1;
                                                         break;
                                                 default:
-                                                        cout << "wrong input!" << endl;
+                                                        cout << "Wrong input!" << endl;
                                                         break;
                                                 }
                                         }
                                 }
                         }
                         else {
-                                cout << "틀렸습니다" << endl;
+                                cout << "Wrong" << endl;
                                 break;
                         }
                         break;
                 case 2:
-                        cout << "휴대폰 번호를 입력하세요.";
+                        cout << "Please enter your cell phone number.";
                         cin >> num;
                         i = v.check(a, num);
                         out2 = 0;
                         if (i == -1) i = v.add(a, num);
                         while (out2 != 1) {
                                 out2 = 0;
-                                cout << "1:투표하기  2:후원하기  3:내 투표보기 4: 출연자 정보보기 5: 순위보기 6: 투표결과보기 7: 글쓰기 8 : 사람고르기 9 : 로그아웃" << endl;
+                                cout << "1: Voting  2: Sponsoring  3: See my Information 4: Show cast Information 5: View Rank 6: View voting results 7: Community 8 : To predict 9 : Predictive Results 10 : Exit" << endl;
                                 cin >> key2;
                                 switch (key2) {
                                 case 1:
@@ -143,7 +152,7 @@ int main() {
                                         break;
                                 case 6:
                                         if (end_vote == 0) {
-                                                cout << "아직 투표가 진행중 입니다. " << endl;
+                                                cout << "Voting is in progress. " << endl;
                                                 break;
                                         }
                                         ac.show_vote(b);
@@ -159,6 +168,27 @@ int main() {
                                         v.addmy_star(a, b, i);
                                         break;
                                 case 9:
+                                        m = 0;
+                                        if (a[i].getmystar().size() == 3) {
+                                                for (int p = 0; p < 3; p++) {
+                                                        for (int j = 0; j < 3; j++) {
+                                                                if (a[i].getmystar()[p] == debut[j].getname()) {
+                                                                        m++;
+                                                                }
+                                                        }
+                                                }
+                                                if (m == 3) {
+                                                        cout << "You've made a good prediction!! " << endl <<
+                                                                "I'll call you at the number soon." << endl;
+                                                        break;
+                                                }
+                                        }else {
+                                                cout << "You didn't make your debut group." << endl;
+                                                break;
+                                        }
+
+                                        break;
+                                case 10:
                                         out2 = 1;
                                         break;
                                 default:
