@@ -6,9 +6,6 @@ void cast::set(string name, int age, string Entertainment) {
         this->Entertainment = Entertainment;
 
 }
-void cast::modify(string name, int age, string Entertainment) {
-
-}
 void cast::setname(string name) {
         this->name = name;
 }

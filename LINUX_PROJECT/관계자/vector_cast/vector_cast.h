@@ -11,10 +11,10 @@ class vector_cast {
 // 출연자 소속사
 
 public:
-void cast_add(vector<cast> &casts, string name, int age, string Entertainment);             // vector에 출연자 추가하기
-void cast_delete(vector<cast>& casts, string name);             // vector에 출연자 삭제하기
+void cast_add(vector<cast> &casts, string name, int age, string Entertainment);               // vector에 출연자 추가하기
+void cast_delete(vector<cast>& casts, string name);               // vector에 출연자 삭제하기
 
-void cast_modify(vector<cast>& casts, string name);             // vector에 있는 출연자 정보 수정하기
+void cast_modify(vector<cast>& casts, string name);               // vector에 있는 출연자 정보 수정하기
 void show(vector<cast> &casts);
 void end_vote(vector<cast> casts, int &end_vote);
 void show_vote(vector<cast> &casts);

@@ -7,7 +7,7 @@ int vector_viewer::add(vector<viewer> &viewers, string PhoneNumber) {
         viewers.push_back(*p);
         return viewers.size() - 1;
 }
-void vector_viewer::vote(vector<viewer> &viewers,vector<cast> &cast,int num) {
+void vector_viewer::vote(vector<viewer> &viewers, vector<cast> &cast, int num) {
         string name, yn;
         int key = 1;
         int ch = 0;
@@ -27,20 +27,24 @@ void vector_viewer::vote(vector<viewer> &viewers,vector<cast> &cast,int num) {
                                 break;
 
                         }
-
                         cout << "투표 하시겠습니까? [Y/N] ";
                         cin >> yn;
                         if (yn == "y" || yn == "Y") {
                                 viewers[num].vote(0, name);
                                 for (int it = 0; it < cast.size(); it++) {
-                                        if(cast[it].getname() == name) cast[it].addvote();
+                                        if (cast[it].getname() == name) cast[it].addvote();
                                 }
                                 cout << "정상적으로 투표되었습니다." << endl;
                                 key = 0;
                                 break;
                         }
-                        else {
+                        else if (yn == "n" || yn == "N") {
+                                cout << "투표되지 않았습니다." << endl;
                                 key = 0;
+                                break;
+                        }
+                        else {
+                                cout << "잘못된 입력입니다." << endl;
                                 break;
                         }
                 case 1:
@@ -50,7 +54,7 @@ void vector_viewer::vote(vector<viewer> &viewers,vector<cast> &cast,int num) {
                                 if (cast[it].getname() == name) break;
                         }
                         if (it == cast.size()) {
-                                cout << "없는 출연진입니다."<< endl;
+                                cout << "없는 출연진입니다." << endl;
                                 key = 0;
                                 break;
 
@@ -105,14 +109,18 @@ int vector_viewer::check(vector<viewer> &viewers, string PhoneNumber) {
         }
 }
 void vector_viewer::show(vector<cast> cast) {
-        for (int it = 0; it < cast.size(); it++) {
-                cout << cast[it].getname() << " : votes -> " <<cast[it].getvote()<< " ranks -> " << cast[it].getrank() << endl;
+        if (cast.size() == 0) cout << "등록된 참가자가 없습니다." << endl;
+        else
+        {
+                for (int it = 0; it < cast.size(); it++) {
+                        cout << cast[it].getname() << " : votes -> " << cast[it].getvote() << " ranks -> " << cast[it].getrank() << endl;
+                }
         }
-
 }
 void vector_viewer::addmy_star(vector<viewer> &viewers, vector<cast> &casts, int num) {
         string names[3];
         string name;
+        int a = 0;
         int j = 0;
         int out = 0;
         int key = 0;
@@ -122,14 +130,24 @@ void vector_viewer::addmy_star(vector<viewer> &viewers, vector<cast> &casts, int
         while (out != 1) {
                 cout << " 1: Registering Your Star 2: See your own star 3: Go to the previous screen. " << endl;
                 cin >> key;
-
+                a = 0;
                 switch (key) {
                 case 1:
                         if (viewers[num].getmystar().size() == 3) {
                                 cout << "All already registered !!" << endl;
                                 break;
                         }
+                        cout << "한 명씩 입력하세요." << endl;
                         cin >> name;
+                        for (int i = 0; i < 3; i++) {
+                                if (names[i] == name) {
+                                        cout << "이미 있는 참가자입니다." << endl;
+                                        a++;
+                                        break;
+                                }
+
+                        }
+                        if (a != 0) break;
                         for (int it = 0; it < casts.size(); it++) {
                                 if (casts[it].getname() == name) {
                                         cout << "Should I register " << name << "? (y or n) " << endl;
@@ -163,10 +181,12 @@ void vector_viewer::addmy_star(vector<viewer> &viewers, vector<cast> &casts, int
                         break;
                 case 3:
                         out = 1;
+                        break;
+                default:
+                        cout << "wrong input!" << endl;
+                        break;
                 }
 
-        }
-}
-void vector_viewer::showmy_star() {
 
+        }
 }

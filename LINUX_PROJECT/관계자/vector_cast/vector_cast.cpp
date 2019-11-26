@@ -35,7 +35,7 @@ void vector_cast::show(vector<cast> &casts) {
                 cout << casts[it].getname() << ' ' << casts[it].getage() << ' ' << casts[it].getEntertainment() << endl;
         }
 }
-void vector_cast:: end_vote(vector<cast> casts, int &end_vote) {
+void vector_cast::end_vote(vector<cast> casts, int &end_vote) {
         cout << "END_vote!!" << endl;
         end_vote = 1;
 }
@@ -44,12 +44,13 @@ void vector_cast::show_vote(vector<cast> &cast) {
                 cout << cast[it].getname() << " : votes -> " << cast[it].getvote() << " ranks -> " << cast[it].getrank() << endl;
         }
 }
+
 void vector_cast::sort(vector<cast> &casts) {
         vector<cast> temp;
         cast a;
         temp.push_back(a);
-        for (int i = 0; i < casts.size()-1; i++) {
-                for (int j = 0; j < casts.size()-1; j++) {
+        for (int i = 0; i < casts.size() - 1; i++) {
+                for (int j = 0; j < casts.size() - 1; j++) {
                         if (casts[j].getvote() < casts[j + 1].getvote()) {
                                 temp[0] = casts[j];
                                 casts[j] = casts[j + 1];
@@ -59,10 +60,11 @@ void vector_cast::sort(vector<cast> &casts) {
         }
         int x = 1;
         int k = 0;
-        for (int i = 0; i < casts.size()-1; i++) {
+        for (int i = 0; i < casts.size() - 1; i++) {
                 if (casts[i].getvote() > casts[i + 1].getvote()) {
                         casts[i].getrank() = x++;
-                }else {
+                }
+                else {
                         casts[i].getrank() = x;
                 }
                 k++;
@@ -70,7 +72,8 @@ void vector_cast::sort(vector<cast> &casts) {
 
         if (casts[k - 1].getvote() > casts[k].getvote()) {
                 casts[k].getrank() = x++;
-        }else if (casts[k - 1].getvote() == casts[k].getvote()) {
+        }
+        else if (casts[k - 1].getvote() == casts[k].getvote()) {
                 casts[k].getrank() = x;
         }
 }

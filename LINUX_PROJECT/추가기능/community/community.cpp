@@ -9,7 +9,7 @@ void community::Community(vector<string> &com) {
                 cin >> key;
                 switch (key) {
                 case 1:
-                        cout << "쓰세요" << endl;
+                        cout << "쓰세요(끝문자 : ;)" << endl;
                         getline(cin, ma, ';');
 
 
@@ -34,7 +34,10 @@ void community::Community(vector<string> &com) {
                         break;
                 case 3:
                         out = 1;
-
+                        break;
+                default:
+                        cout << "wrong input!" << endl;
+                        break;
                 }
         }
 }

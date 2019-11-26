@@ -41,51 +41,63 @@ int main() {
                                 out2 = 0;
 
                                 while (out2 != 1) {
-                                        cout << "1 : 사람 추가하기 2 : 사람 삭제하기 3: 사람 수정하기 4 : 추가된 사람들 보기 5: 투표하기 6: 투표 끝내기 7: 투표결과 보기 8: 글 쓰기. 9 : 나가기" << endl;
+                                        cout << "1 : 사람 추가하기 2 : 사람 삭제하기 3: 사람 수정하기 4 : 추가된 사람들 보기 5: 투표하기 6: 순위 보기 7: 투표 끝내기 8: 투표결과 보기 9: 글 쓰기. 10: 나가기" << endl;
                                         cin >> key2;
-                                        switch (key2) {
-                                        case 1:
-                                                cout << "이름 나이 소속사를 적어" << endl;
-                                                cin >> name >> age >> en;
-                                                ac.cast_add(b, name, age, en);
-                                                break;
-                                        case 2:
-                                                cout << "삭제할 사람의 이름을 적어봐" << endl;
-                                                cin >> name;
-                                                ac.cast_delete(b, name);
-                                                break;
-                                        case 3:
-                                                cout << "사람을 수정하자" << endl;
-                                                cin >> name;
-                                                ac.cast_modify(b, name);
-                                                break;
-                                        case 4:
-                                                ac.show(b);
-                                                break;
-                                        case 5:
-                                                if (end_vote == 1) {
-                                                        cout << "end_vote!" <<endl;
+                                        if (end_vote == 1 && (key2 != 6 && key2 != 8 && key2 != 9 && key2 != 10)) {
+                                                cout << "투표결과 보기와 글 쓰기만 가능합니다." << endl;
+                                                continue;
+                                        }
+                                        else {
+                                                switch (key2) {
+                                                case 1:
+                                                        cout << "이름 나이 소속사를 적어" << endl;
+                                                        cin >> name >> age >> en;
+                                                        ac.cast_add(b, name, age, en);
+                                                        break;
+                                                case 2:
+                                                        cout << "삭제할 사람의 이름을 적어봐" << endl;
+                                                        cin >> name;
+                                                        ac.cast_delete(b, name);
+                                                        break;
+                                                case 3:
+                                                        cout << "사람을 수정하자" << endl;
+                                                        cin >> name;
+                                                        ac.cast_modify(b, name);
+                                                        break;
+                                                case 4:
+                                                        ac.show(b);
+                                                        break;
+                                                case 5:
+                                                        if (end_vote == 1) {
+                                                                cout << "end_vote!" << endl;
+                                                                break;
+                                                        }
+                                                        v.vote(a, b, i);
+                                                        ac.sort(b);
+                                                        break;
+                                                case 6:
+                                                        v.show(b);
+                                                        break;
+                                                case 7:
+                                                        ac.end_vote(b, end_vote);
+                                                        break;
+                                                case 8:
+                                                        if (end_vote == 0) {
+                                                                cout << "아직 투표가 진행중 입니다." << endl;;
+                                                                break;
+                                                        }
+                                                        ac.show_vote(b);
+                                                        break;
+                                                case 9:
+                                                        d.Community(c);
+                                                        break;
+                                                case 10:
+                                                        out2 = 1;
+                                                        break;
+                                                default:
+                                                        cout << "wrong input!" << endl;
                                                         break;
                                                 }
-
-                                                v.vote(a, b,i);
-                                                ac.sort(b);
-                                                break;
-                                        case 6:
-                                                ac.end_vote(b,end_vote);
-                                                break;
-                                        case 7:
-                                                if (end_vote == 0) {
-                                                        cout << "아직 투표가 진행중 입니다." << endl;;
-                                                        break;
-                                                }
-                                                ac.show_vote(b);
-                                                break;
-                                        case 8:
-                                                d.Community(c);
-                                                break;
-                                        case 9:
-                                                out2 = 1;
                                         }
                                 }
                         }
@@ -110,10 +122,14 @@ int main() {
                                                 cout << "end_vote!" << endl;
                                                 break;
                                         }
-                                        v.vote(a,b, i);
+                                        v.vote(a, b, i);
                                         ac.sort(b);
                                         break;
                                 case 2:
+                                        if (end_vote == 1) {
+                                                cout << "end_vote!" << endl;
+                                                break;
+                                        }
                                         v.donation(a, i);
                                         break;
                                 case 3:
@@ -136,10 +152,17 @@ int main() {
                                         d.Community(c);
                                         break;
                                 case 8:
-                                        v.addmy_star(a,b,i);
+                                        if (end_vote == 1) {
+                                                cout << "end_vote!" << endl;
+                                                break;
+                                        }
+                                        v.addmy_star(a, b, i);
                                         break;
                                 case 9:
                                         out2 = 1;
+                                        break;
+                                default:
+                                        cout << "wrong input!" << endl;
                                         break;
                                 }
                         }
@@ -147,7 +170,9 @@ int main() {
                 case 3:
                         out1 = 1;
                         break;
-
+                default:
+                        cout << "wrong input!" << endl;
+                        break;
                 }
         }
 }
