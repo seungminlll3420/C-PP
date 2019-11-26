@@ -1,11 +1,11 @@
 #include <iostream>
 #include <string>
-#define ARRAY_MAX 1000
+#include <vector>
 
 using namespace std;
 
 class community {
 public:
-void community:: Community(vector<string> &com)
+void Community(vector<string> &com);
 
 };

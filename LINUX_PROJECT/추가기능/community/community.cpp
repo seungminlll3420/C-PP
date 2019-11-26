@@ -1,37 +1,39 @@
 #include "community.h"
 
-
-
-
-void community:: Community(vector<string> &com) {
-        int out =0;
+void community::Community(vector<string> &com) {
+        int out = 0;
         int key = 0;
         string ma;
-        while(out != 1) {
-                cout << "1 : 글쓰기 2: 글 보기 3 : 처음화면 가기"<<endl;
+        while (out != 1) {
+                cout << "1 : 글쓰기 2: 글 보기 3 : 처음화면 가기" << endl;
                 cin >> key;
-                switch(key) {
+                switch (key) {
                 case 1:
-                        cout << "쓰세요" <<endl;
-                        cin >> ma;
-                        if(ma == "") {
+                        cout << "쓰세요" << endl;
+                        getline(cin, ma, ';');
+
+
+                        if (ma == "") {
                                 cout << "You've entered something wrong !!" << endl;
                                 break;
-                        }else{
+                        }
+                        else {
+
                                 com.push_back(ma);
-                                if(com.size() == 11) com.erase(10);
+                                if (com.size() == 11) com.erase(com.begin());
 
                         }
                         break;
                 case 2:
-                        if(com.size() == 0) {
-                                cout<< "등록된 글이 없어,,,," << endl;
-                        }else{
-                                for(int i =0; i< com.size(); i++) cout << i << " :: " << com[i] <<endl;
+                        if (com.size() == 0) {
+                                cout << "등록된 글이 없어,,,," << endl;
+                        }
+                        else {
+                                for (int i = 0; i < com.size(); i++) cout << i+1 << " :: " << com[i] << endl;
                         }
                         break;
                 case 3:
-                        out =1;
+                        out = 1;
 
                 }
         }
