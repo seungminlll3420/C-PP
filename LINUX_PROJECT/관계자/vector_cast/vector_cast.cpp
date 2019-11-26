@@ -1,6 +1,6 @@
 #include "vector_cast.h"
 
-void vector_cast :: cast_add(vector<cast>& casts, string name, int age, string Entertainment) {
+void vector_cast::cast_add(vector<cast>& casts, string name, int age, string Entertainment) {
         cast *p = new cast;
         p->set(name, age, Entertainment);
 
@@ -16,7 +16,7 @@ void vector_cast::cast_delete(vector<cast> &casts, string name) {
                 }
         }
 }
-void vector_cast :: cast_modify(vector<cast> &casts, string name) {
+void vector_cast::cast_modify(vector<cast> &casts, string name) {
 
         for (int i = 0; i < casts.size(); i++) {
                 if (casts[i].getname() == name) {
@@ -33,5 +33,14 @@ void vector_cast :: cast_modify(vector<cast> &casts, string name) {
 void vector_cast::show(vector<cast> &casts) {
         for (int it = 0; it < casts.size(); it++) {
                 cout << casts[it].getname() << ' ' << casts[it].getage() << ' ' << casts[it].getEntertainment() << endl;
+        }
+}
+void vector_cast:: end_vote(vector<cast> casts, int &end_vote) {
+        cout << "END_vote!!" << endl;
+        end_vote = 1;
+}
+void vector_cast::show_vote(vector<cast> &cast) {
+        for (int it = 0; it < cast.size(); it++) {
+                cout << cast[it].getname() << " : votes -> " << cast[it].getvote() << " ranks -> " << cast[it].getrank() << endl;
         }
 }

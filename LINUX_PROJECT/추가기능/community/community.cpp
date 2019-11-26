@@ -29,7 +29,7 @@ void community::Community(vector<string> &com) {
                                 cout << "등록된 글이 없어,,,," << endl;
                         }
                         else {
-                                for (int i = 0; i < com.size(); i++) cout << i+1 << " :: " << com[i] << endl;
+                                for (int i = 0; i < com.size(); i++) cout << i + 1 << " :: " << com[i] << endl;
                         }
                         break;
                 case 3:

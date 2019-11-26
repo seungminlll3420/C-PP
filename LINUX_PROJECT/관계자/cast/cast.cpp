@@ -12,7 +12,7 @@ void cast::modify(string name, int age, string Entertainment) {
 void cast::setname(string name) {
         this->name = name;
 }
-void cast:: setage(int age) {
+void cast::setage(int age) {
         this->age = age;
 }
 void cast::setEntertainment(string Entertainment) {
@@ -26,4 +26,13 @@ int cast::getage() {
 }
 string cast::getEntertainment() {
         return Entertainment;
+}
+void cast::addvote() {
+        votes++;
+}
+int cast::getvote() {
+        return votes;
+}
+int cast::getrank() {
+        return rank;
 }
