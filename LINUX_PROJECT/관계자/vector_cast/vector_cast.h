@@ -18,5 +18,6 @@ void cast_modify(vector<cast>& casts, string name);             // vector에 있
 void show(vector<cast> &casts);
 void end_vote(vector<cast> casts, int &end_vote);
 void show_vote(vector<cast> &casts);
+void sort(vector<cast> &casts);
 
 };

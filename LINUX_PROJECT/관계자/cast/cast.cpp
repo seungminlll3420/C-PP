@@ -33,6 +33,6 @@ void cast::addvote() {
 int cast::getvote() {
         return votes;
 }
-int cast::getrank() {
+int& cast::getrank() {
         return rank;
 }

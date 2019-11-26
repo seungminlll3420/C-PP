@@ -67,7 +67,9 @@ int main() {
                                                         cout << "end_vote!" <<endl;
                                                         break;
                                                 }
+
                                                 v.vote(a, b,i);
+                                                ac.sort(b);
                                                 break;
                                         case 6:
                                                 ac.end_vote(b,end_vote);
@@ -109,6 +111,7 @@ int main() {
                                                 break;
                                         }
                                         v.vote(a,b, i);
+                                        ac.sort(b);
                                         break;
                                 case 2:
                                         v.donation(a, i);

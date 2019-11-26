@@ -44,3 +44,33 @@ void vector_cast::show_vote(vector<cast> &cast) {
                 cout << cast[it].getname() << " : votes -> " << cast[it].getvote() << " ranks -> " << cast[it].getrank() << endl;
         }
 }
+void vector_cast::sort(vector<cast> &casts) {
+        vector<cast> temp;
+        cast a;
+        temp.push_back(a);
+        for (int i = 0; i < casts.size()-1; i++) {
+                for (int j = 0; j < casts.size()-1; j++) {
+                        if (casts[j].getvote() < casts[j + 1].getvote()) {
+                                temp[0] = casts[j];
+                                casts[j] = casts[j + 1];
+                                casts[j + 1] = temp[0];
+                        }
+                }
+        }
+        int x = 1;
+        int k = 0;
+        for (int i = 0; i < casts.size()-1; i++) {
+                if (casts[i].getvote() > casts[i + 1].getvote()) {
+                        casts[i].getrank() = x++;
+                }else {
+                        casts[i].getrank() = x;
+                }
+                k++;
+        }
+
+        if (casts[k - 1].getvote() > casts[k].getvote()) {
+                casts[k].getrank() = x++;
+        }else if (casts[k - 1].getvote() == casts[k].getvote()) {
+                casts[k].getrank() = x;
+        }
+}

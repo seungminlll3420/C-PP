@@ -18,7 +18,7 @@ void setname(string name);
 void setage(int age);
 void setEntertainment(string Entertainment);
 void addvote();
-int getrank();
+int &getrank();
 int getvote();
 string getname();
 int getage();
